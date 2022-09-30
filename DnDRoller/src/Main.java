@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
@@ -32,16 +31,13 @@ public class Main {
             Scanner input = new Scanner(System.in);
             System.out.print("D:");
             setmax(Math.abs(input.nextInt()));
-            output();
+            randomnum();
+            reroll();
         }
         catch(InputMismatchException ex) {
             System.out.println("literally put any number stupid ass fucking human headass");
             input();
         }
-    }
-    public static void output() {
-        randomnum();
-        reroll();
     }
     public static void reroll() {
         try {
@@ -70,80 +66,42 @@ public class Main {
             reroll();
         }
     }
+    public static void printNumbers(String[] number0, String[] number1) {
+            for (int x = 0; x < 5; x++) {
+                System.out.print(number0[x]);
+                System.out.print("    ");
+                System.out.print(number1[x]);
+                System.out.print("\n");
+            }
+    }
+    public static void printNumber(String[] number) {
+        for (int x = 0; x < 5; x++) {
+            System.out.print(number[x]);
+            System.out.print("\n");
+        }
+    }
     public static void artnum() {
         int number = getrandom();
-        int firstdigit = number/10;
-        int seconddigit = number - (firstdigit*10);
-        ArrayList<String> art = new ArrayList<>();
-        art.add(0, """
-                 0000
-                00  00
-                00  00
-                00  00
-                 0000""");
-        art.add(1, """
-                1111
-                  11
-                  11
-                  11
-                111111""");
-        art.add(2, """
-                 2222
-                22  22
-                   22
-                  22
-                222222""");
-        art.add(3, """
-                 3333
-                33  33
-                   333
-                33  33
-                 3333""");
-        art.add(4, """
-                44  44
-                44  44
-                444444
-                    44
-                    44""");
-        art.add(5, """
-                555555
-                55
-                55555
-                    55
-                55555""");
-        art.add(6, """
-                 6666
-                66
-                66666
-                66  66
-                 6666""");
-        art.add(7, """
-                777777
-                   77
-                  77
-                 77
-                77""");
-        art.add(8, """
-                 8888
-                88  88
-                 8888
-                88  88
-                 8888""");
-        art.add(9, """
-                999999
-                99  99
-                999999
-                    99
-                   99
-                  99""");
+        int firstdigit = (number/10);
+        int seconddigit = (number - (firstdigit*10));
+        String[] art0 = {" 0000 ","00  00","00  00","00  00"," 0000 "};
+        String[] art1 = {"1111  ","  11  ","  11  ","  11  ","111111"};
+        String[] art2 = {" 2222 ","22  22","   22 ","  22  ","222222"};
+        String[] art3 = {" 3333 ","33  33","   333","33  33"," 3333 "};
+        String[] art4 = {"44  44","44  44","444444","    44","    44"};
+        String[] art5 = {"555555","55    ","55555 ","    55","55555 "};
+        String[] art6 = {" 6666 ","66    ","66666 ","66  66"," 6666 "};
+        String[] art7 = {"777777","   77 ","  77  "," 77   ","77    "};
+        String[] art8 = {" 8888 ","88  88"," 8888 ","88  88"," 8888 "};
+        String[] art9 = {"999999","99  99","999999","    99","   99 ","  99  "};
+
+        String[][] arrays = {art0,art1,art2,art3,art4,art5,art6,art7,art8,art9};
         if (getrandom()<10) {
-            System.out.println(art.get(number));
+        printNumber(arrays[getrandom()]);
         }
         else if (getrandom()<100) {
-            System.out.println(art.get(firstdigit));
-            System.out.println(art.get(seconddigit));
+        printNumbers(arrays[firstdigit],arrays[seconddigit]);
         }
-        System.out.println(getrandom());
     }
     public static void randomnum(){
         setrandom((int) (Math.random() * (getmax() - Main.min + 1) + Main.min));
