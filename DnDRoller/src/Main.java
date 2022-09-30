@@ -17,13 +17,15 @@ public class Main {
     }
     public static void main(String[] args) {
         System.out.println("Let's Roll!");
-        System.out.println("       .-------.    ______");
-        System.out.println("      /   o   /|   //\\     \\");
-        System.out.println("     /_______/o|  //o \\  o  \\");
-        System.out.println("     | o     | | //   o\\_____\\");
-        System.out.println("     |   o   |o/ \\o   /o    /");
-        System.out.println("     |     o |/   \\ o/  o  /");
-        System.out.println("     '-------'     \\/____o/");
+        System.out.println("""      
+       .-------.    ______
+      /   o   /|   /\\     \\
+     /_______/o|  /o \\  o  \\
+     | o     | | /   o\\_____\\
+     |   o   |o/ \\o   /o    /
+     |     o |/   \\ o/  o  /
+     '-------'     \\/____o/
+                """);
         input();
     }
     public static void input() {
@@ -35,13 +37,13 @@ public class Main {
             reroll();
         }
         catch(InputMismatchException ex) {
-            System.out.println("literally put any number stupid ass fucking human headass");
+            System.out.println("That's Universally Stupid Man, type a whole number");
             input();
         }
     }
     public static void reroll() {
         try {
-            System.out.println("Press 1 to reroll, press 2 to reset dice, press 3 to exit");
+            System.out.println("type 1 to reroll, type 2 to reset dice, type anything to exit");
             Scanner input1 = new Scanner(System.in);
             int newinput = input1.nextInt();
             if (Math.abs(newinput) == 1) {
@@ -53,17 +55,12 @@ public class Main {
             else if (Math.abs(newinput) == 2) {
                 input();
             }
-            else if (Math.abs(newinput) >3) {
-                System.out.println("Please input 1-3, stupid ass mf");
-                reroll();
-            }
             else {
-                System.out.println("See you later Space Cowboy");
+                System.out.println("Until we meet again!");
             }
         }
         catch(InputMismatchException ex) {
-            System.out.println("Follow the fucking directions omh");
-            reroll();
+        System.out.println("Until we meet again!");
         }
     }
     public static void printNumbers(String[] number0, String[] number1) {
