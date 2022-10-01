@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/fuckaround.iml" filepath="$PROJECT_DIR$/fuckaround.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DnDDiceRoller.iml" filepath="$PROJECT_DIR$/DnDDiceRoller.iml" />
     </modules>
   </component>
 </project>
