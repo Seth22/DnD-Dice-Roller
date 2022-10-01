@@ -48,8 +48,6 @@ public class Main {
             int newinput = input1.nextInt();
             if (Math.abs(newinput) == 1) {
                 randomnum();
-                if (getrandom()>99) {
-                System.out.println(getrandom());}
                 reroll();
             }
             else if (Math.abs(newinput) == 2) {
@@ -63,24 +61,34 @@ public class Main {
         System.out.println("Until we meet again!");
         }
     }
-    public static void printNumbers(String[] number0, String[] number1) {
+    public static void printNumbers(String[] number0, String[] number1, String[] number2) {
+        if (getrandom() < 10) {
+            for (int x = 0; x < 5; x++) {
+                System.out.print(number0[x]);
+                System.out.print("\n");
+            }
+        }
+        else if (getrandom()<100) {
             for (int x = 0; x < 5; x++) {
                 System.out.print(number0[x]);
                 System.out.print("    ");
                 System.out.print(number1[x]);
                 System.out.print("\n");
             }
-    }
-    public static void printNumber(String[] number) {
-        for (int x = 0; x < 5; x++) {
-            System.out.print(number[x]);
-            System.out.print("\n");
+        }
+        else if (getrandom()<1000) {
+            for (int x =0; x<5; x++) {
+                System.out.print(number0[x]);
+                System.out.print("    ");
+                System.out.print(number1[x]);
+                System.out.print("    ");
+                System.out.print(number2[x]);
+                System.out.print("\n");
+            }
         }
     }
-    public static void artnum() {
-        int number = getrandom();
-        int firstdigit = (number/10);
-        int seconddigit = (number - (firstdigit*10));
+    public static void randomnum(){
+        setrandom((int) (Math.random() * (getmax() - Main.min + 1) + Main.min));
         String[] art0 = {" 0000 ","00  00","00  00","00  00"," 0000 "};
         String[] art1 = {"1111  ","  11  ","  11  ","  11  ","111111"};
         String[] art2 = {" 2222 ","22  22","   22 ","  22  ","222222"};
@@ -91,19 +99,17 @@ public class Main {
         String[] art7 = {"777777","   77 ","  77  "," 77   ","77    "};
         String[] art8 = {" 8888 ","88  88"," 8888 ","88  88"," 8888 "};
         String[] art9 = {"999999","99  99","999999","    99","   99 ","  99  "};
+        System.out.println(getrandom());
 
         String[][] arrays = {art0,art1,art2,art3,art4,art5,art6,art7,art8,art9};
         if (getrandom()<10) {
-        printNumber(arrays[getrandom()]);
+            printNumbers(arrays[getrandom()],null,null);
         }
         else if (getrandom()<100) {
-        printNumbers(arrays[firstdigit],arrays[seconddigit]);
+            printNumbers(arrays[getrandom()/10],arrays[(getrandom()%10)],null);
         }
-    }
-    public static void randomnum(){
-        setrandom((int) (Math.random() * (getmax() - Main.min + 1) + Main.min));
-        if (getrandom()<100) {
-            artnum();
+        else if (getrandom()<1000) {
+            printNumbers(arrays[getrandom()/100],arrays[(getrandom()%100)/10],arrays[getrandom()%10]);
         }
     }
 }
