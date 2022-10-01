@@ -16,15 +16,15 @@ public class Main {
         random = newrandom;
     }
     public static void main(String[] args) {
-        System.out.println("Let's Roll!");
+        System.out.println("Let's Roll!, Your Fate is now in Jah's Hands");
         System.out.println("""      
-       .-------.    ______
-      /   o   /|   /\\     \\
-     /_______/o|  /o \\  o  \\
-     | o     | | /   o\\_____\\
-     |   o   |o/ \\o   /o    /
-     |     o |/   \\ o/  o  /
-     '-------'     \\/____o/
+       .-------.   `______'
+      /   o   /|  `/\\     \\'
+     /_______/o| `/o \\  o  \\'
+     | o     | |`/   o\\_____\\'
+     |   o   |o/`\\o   /o    /
+     |     o |/  `\\ o/  o  /
+     '-------'    `\\/____o/
                 """);
         input();
     }
@@ -108,4 +108,5 @@ public class Main {
     }
 }
 //created by Seth/SJB
-//I will not delete random files, I will not delete random files, I will not delete random files,I will not delete random files
+//Maybe add loops to roll multible times
+//add support for three digit numbers possible bigger(Using math :D)
