@@ -33,7 +33,6 @@ public class Main {
             Scanner input = new Scanner(System.in);
             System.out.print("D:");
             setmax(Math.abs(input.nextInt()));
-            randomnum();
             reroll();
         }
         catch(InputMismatchException ex) {
@@ -43,7 +42,7 @@ public class Main {
     }
     public static void reroll() {
         try {
-            System.out.println("type 1 to reroll, type 2 to reset dice, type anything to exit");
+            System.out.println("Type 1 to roll, Type 2 to reset dice, Type 3 to roll the dice multiple times in a row, Type anything to exit");
             Scanner input1 = new Scanner(System.in);
             int newinput = input1.nextInt();
             if (Math.abs(newinput) == 1) {
@@ -53,6 +52,27 @@ public class Main {
             else if (Math.abs(newinput) == 2) {
                 input();
             }
+            else if (Math.abs(newinput) == 3) {
+                try {
+                    System.out.print("\nPlease type the number of times you would like to roll the dice:");
+                    int y = Math.abs(input1.nextInt());
+                    int totalNumber = 0;
+                    for (int x = 0; x<y; x++) {
+                        randomnum();
+                        System.out.println();
+                        totalNumber += getrandom();
+                    }
+                    System.out.println("The total number is:"+totalNumber);
+                    printNumbers(totalNumber);
+                    System.out.println("\nThe average is:"+totalNumber/y);
+                    printNumbers((totalNumber/y));
+                    reroll();
+                }
+                catch(InputMismatchException ex) {
+                    System.out.println("That's Universally Stupid Man, type a whole number");
+                    reroll();
+                }
+            }
             else {
                 System.out.println("Until we meet again!");
             }
@@ -61,34 +81,7 @@ public class Main {
         System.out.println("Until we meet again!");
         }
     }
-    public static void printNumbers(String[] number0, String[] number1, String[] number2) {
-        if (getrandom() < 10) {
-            for (int x = 0; x < 5; x++) {
-                System.out.print(number0[x]);
-                System.out.print("\n");
-            }
-        }
-        else if (getrandom()<100) {
-            for (int x = 0; x < 5; x++) {
-                System.out.print(number0[x]);
-                System.out.print("    ");
-                System.out.print(number1[x]);
-                System.out.print("\n");
-            }
-        }
-        else if (getrandom()<1000) {
-            for (int x =0; x<5; x++) {
-                System.out.print(number0[x]);
-                System.out.print("    ");
-                System.out.print(number1[x]);
-                System.out.print("    ");
-                System.out.print(number2[x]);
-                System.out.print("\n");
-            }
-        }
-    }
-    public static void randomnum(){
-        setrandom((int) (Math.random() * (getmax() - Main.min + 1) + Main.min));
+    public static void printNumbers(int number) {
         String[] art0 = {" 0000 ","00  00","00  00","00  00"," 0000 "};
         String[] art1 = {"1111  ","  11  ","  11  ","  11  ","111111"};
         String[] art2 = {" 2222 ","22  22","   22 ","  22  ","222222"};
@@ -99,20 +92,38 @@ public class Main {
         String[] art7 = {"777777","   77 ","  77  "," 77   ","77    "};
         String[] art8 = {" 8888 ","88  88"," 8888 ","88  88"," 8888 "};
         String[] art9 = {"999999","99  99","999999","    99","   99 ","  99  "};
-        System.out.println(getrandom());
-
         String[][] arrays = {art0,art1,art2,art3,art4,art5,art6,art7,art8,art9};
-        if (getrandom()<10) {
-            printNumbers(arrays[getrandom()],null,null);
+        if (number<10) {
+            for (int x = 0; x < 5; x++) {
+                System.out.print(arrays[number][x]);
+                System.out.print("\n");
+            }
         }
-        else if (getrandom()<100) {
-            printNumbers(arrays[getrandom()/10],arrays[(getrandom()%10)],null);
+        else if (number<100) {
+            for (int x = 0; x < 5; x++) {
+                System.out.print(arrays[number/10][x]);
+                System.out.print("    ");
+                System.out.print(arrays[number%10][x]);
+                System.out.print("\n");
+            }
         }
-        else if (getrandom()<1000) {
-            printNumbers(arrays[getrandom()/100],arrays[(getrandom()%100)/10],arrays[getrandom()%10]);
+        else if (number<1000) {
+            for (int x =0; x<5; x++) {
+                System.out.print(arrays[number/100][x]);
+                System.out.print("    ");
+                System.out.print(arrays[(number%100)/10][x]);
+                System.out.print("    ");
+                System.out.print(arrays[number%10][x]);
+                System.out.print("\n");
+            }
         }
+        else {
+            System.out.println(number);
+        }
+    }
+    public static void randomnum(){
+        setrandom((int) (Math.random() * (getmax() - Main.min + 1) + Main.min));
+        printNumbers(getrandom());
     }
 }
 //created by Seth/SJB
-//Maybe add loops to roll multible times
-//add support for three digit numbers possible bigger(Using math :D)
