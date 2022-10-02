@@ -3,16 +3,16 @@ import java.util.InputMismatchException;
 
 public class Main {
     private static int max; final static int min = 1;
-    static int getmax() {
+    static int getMax() {
         return max; }
-    static void setmax(int newmax) {
+    static void setMax(int newmax) {
         max = newmax;
     }
     private static int random;
-    static int getrandom() {
+    static int getRandom() {
         return random;
     }
-    static void setrandom(int newrandom) {
+    static void setRandom(int newrandom) {
         random = newrandom;
     }
     public static void main(String[] args) {
@@ -32,22 +32,22 @@ public class Main {
         try {
             Scanner input = new Scanner(System.in);
             System.out.print("D:");
-            setmax(Math.abs(input.nextInt()));
-            reroll();
+            setMax(Math.abs(input.nextInt()));
+            reRoll();
         }
         catch(InputMismatchException ex) {
             System.out.println("That's Universally Stupid Man, type a whole number");
             input();
         }
     }
-    public static void reroll() {
+    public static void reRoll() {
         try {
             System.out.println("Type 1 to roll, Type 2 to reset dice, Type 3 to roll the dice multiple times in a row, Type anything to exit");
             Scanner input1 = new Scanner(System.in);
             int newinput = input1.nextInt();
             if (Math.abs(newinput) == 1) {
-                randomnum();
-                reroll();
+                randomNumber();
+                reRoll();
             }
             else if (Math.abs(newinput) == 2) {
                 input();
@@ -58,19 +58,19 @@ public class Main {
                     int y = Math.abs(input1.nextInt());
                     int totalNumber = 0;
                     for (int x = 0; x<y; x++) {
-                        randomnum();
+                        randomNumber();
                         System.out.println();
-                        totalNumber += getrandom();
+                        totalNumber += getRandom();
                     }
                     System.out.println("The total number is:"+totalNumber);
                     printNumbers(totalNumber);
                     System.out.println("\nThe average is:"+totalNumber/y);
                     printNumbers((totalNumber/y));
-                    reroll();
+                    reRoll();
                 }
                 catch(InputMismatchException ex) {
                     System.out.println("That's Universally Stupid Man, type a whole number");
-                    reroll();
+                    reRoll();
                 }
             }
             else {
@@ -121,9 +121,9 @@ public class Main {
             System.out.println(number);
         }
     }
-    public static void randomnum(){
-        setrandom((int) (Math.random() * (getmax() - Main.min + 1) + Main.min));
-        printNumbers(getrandom());
+    public static void randomNumber(){
+        setRandom((int) (Math.random() * (getMax() - Main.min + 1) + Main.min));
+        printNumbers(getRandom());
     }
 }
 //created by Seth/SJB
