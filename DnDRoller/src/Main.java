@@ -1,8 +1,11 @@
+//Author: Seth/Sheriff John Brown
+//DnD dice roller/simulator
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
 public class Main {
-    private static int max; final static int min = 1;
+    final static int min = 1;
+    private static int max;
     static int getMax() {
         return max; }
     static void setMax(int newmax) {
@@ -15,6 +18,8 @@ public class Main {
     static void setRandom(int newrandom) {
         random = newrandom;
     }
+    //Getters and Setters are not necessary for the program to work
+    //I felt it was better to practice doing things the right way rather than just a way that works
     public static void main(String[] args) {
         System.out.println("Let's Roll!, Your Fate is now in Jah's Hands");
         System.out.println("""      
@@ -33,11 +38,13 @@ public class Main {
             Scanner input = new Scanner(System.in);
             System.out.print("D:");
             setMax(Math.abs(input.nextInt()));
+            //sets variable max to the absolute value of the user input(ABS used in case input is negative)
             reRoll();
         }
         catch(InputMismatchException ex) {
             System.out.println("That's Universally Stupid Man, type a whole number");
             input();
+            //If user inputs a bad value lets them try again
         }
     }
     public static void reRoll() {
@@ -45,36 +52,36 @@ public class Main {
             System.out.println("Type 1 to roll, Type 2 to reset dice, Type 3 to roll the dice multiple times in a row, Type anything to exit");
             Scanner input1 = new Scanner(System.in);
             int newinput = input1.nextInt();
-            if (Math.abs(newinput) == 1) {
-                randomNumber();
-                reRoll();
-            }
-            else if (Math.abs(newinput) == 2) {
-                input();
-            }
-            else if (Math.abs(newinput) == 3) {
-                try {
-                    System.out.print("\nPlease type the number of times you would like to roll the dice:");
-                    int y = Math.abs(input1.nextInt());
-                    int totalNumber = 0;
-                    for (int x = 0; x<y; x++) {
-                        randomNumber();
-                        System.out.println();
-                        totalNumber += getRandom();
+            switch(newinput) {
+                case 1:
+                    randomNumber();
+                    reRoll();
+                    break;
+                case 2:
+                    input();
+                    break;
+                case 3:
+                    try {
+                        System.out.print("\nPlease type the number of times you would like to roll the dice:");
+                        int y = Math.abs(input1.nextInt());
+                        int totalNumber = 0;
+                        for (int x = 0; x<y; x++) {
+                            randomNumber();
+                            System.out.println();
+                            totalNumber += getRandom();
+                        }
+                        System.out.println("The total number is:"+totalNumber);
+                        printNumbers(totalNumber);
+                        System.out.println("\nThe average is:"+totalNumber/y);
+                        printNumbers((totalNumber/y));
+                        reRoll();
                     }
-                    System.out.println("The total number is:"+totalNumber);
-                    printNumbers(totalNumber);
-                    System.out.println("\nThe average is:"+totalNumber/y);
-                    printNumbers((totalNumber/y));
-                    reRoll();
-                }
-                catch(InputMismatchException ex) {
-                    System.out.println("That's Universally Stupid Man, type a whole number");
-                    reRoll();
-                }
-            }
-            else {
-                System.out.println("Until we meet again!");
+                    catch(InputMismatchException ex) {
+                        System.out.println("That's Universally Stupid Man, type a whole number");
+                        reRoll();
+                    }
+                    break;
+                default:System.out.println("Until we meet again!");
             }
         }
         catch(InputMismatchException ex) {
@@ -93,6 +100,7 @@ public class Main {
         String[] art8 = {" 8888 ","88  88"," 8888 ","88  88"," 8888 "};
         String[] art9 = {"999999","99  99","999999","    99","   99 ","  99  "};
         String[][] arrays = {art0,art1,art2,art3,art4,art5,art6,art7,art8,art9};
+
         if (number<10) {
             for (int x = 0; x < 5; x++) {
                 System.out.print(arrays[number][x]);
