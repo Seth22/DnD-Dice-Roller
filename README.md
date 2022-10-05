@@ -1,8 +1,22 @@
 # DnD-Dice-Roller
-Rolls a D:(n) dice! 
+## Rolls a D:(n) dice! 
 
-Input an integer N
+This program will ask for an integer(n) as input: (Your D(n) die!)
 
-A random number will be choosen between 1-n if the number is less than 100 then some ASCII art will show up
+Then ask the user if they wish to:
 
-*This app is not only disrupting the virtual dice rolling space through zero-trust cloud driven infrasture that is optimized by machine learning algorithms but it is also making the world a better place*
+-Roll dice
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Outputs: a random number between one and n
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Will also show some ASCII art of the random number choosen
+
+-Reset dice
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Let's the user choose a new n
+
+-Roll dice multible times 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Outputs: The ASCII art of the dice rolls and the total number along with the average of all the dice rolls 
+
+***Please enjoy :D -SJB***
