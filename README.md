@@ -13,10 +13,12 @@ Then ask the user if they wish to:
 
 -Reset dice
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Let's the user choose a new n
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Let's the user input a new n
 
 -Roll dice multible times 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Outputs: The ASCII art of the dice rolls and the total number along with the average of all the dice rolls 
+
+Then allows the user to choose again from the above 3 options 
 
 ***Please enjoy :D -SJB***
