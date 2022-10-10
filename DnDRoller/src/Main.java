@@ -51,8 +51,8 @@ public class Main {
         try {
             System.out.println("Type 1 to roll, Type 2 to reset dice, Type 3 to roll the dice multiple times in a row, Type anything to exit");
             Scanner input1 = new Scanner(System.in);
-            int newinput = input1.nextInt();
-            switch(newinput) {
+            int newInput = input1.nextInt();
+            switch(newInput) {
                 case 1:
                     randomNumber();
                     reRoll();
