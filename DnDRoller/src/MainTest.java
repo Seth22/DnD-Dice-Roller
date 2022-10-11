@@ -1,6 +1,4 @@
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.*;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
@@ -13,7 +11,7 @@ class MainTest {
     assertEquals(Main.getMax(),200);
     System.out.println("Test 1 passed! Set Max is working!");
     }
-    
+
     @Test
     @DisplayName("Test 2: Set Random")
     void test2() {
@@ -22,6 +20,13 @@ class MainTest {
         Main.setRandom(739);
         assertEquals(Main.getRandom(),739);
         System.out.println("Test 2 passed! Set Random is working!");
+    }
+
+    @Test
+    @DisplayName("Test 3: Min test")
+    void test3() {
+        assertEquals(Main.min,1);
+        System.out.println("Test 3 passed! Min is 1");
     }
 
 }
