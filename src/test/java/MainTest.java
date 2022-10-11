@@ -13,5 +13,13 @@ class MainTest {
         assertEquals(Main.getMax(),15);
         System.out.println("Test 1 passed");
     }
+    @Test
+    @DisplayName("Test 1: Random set test")
+    void test2() {
+        Main.setRandom(50);
+        assertEquals(Main.getRandom(),50);
+
+        System.out.println("Test 2 Passed");
+    }
 
 }
